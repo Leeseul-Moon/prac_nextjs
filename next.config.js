@@ -11,7 +11,7 @@ const nextConfig = {
       {
         source: "/old-blog/:path*",
         destination: "/new-sexy/:path*", // 외부로도 리다이렉트 가능, * 붙이면 뒤의 경로 모두 유지되면서 리다이렉트
-        permanent: false, // 검색엔진이 이 리다이렉트를 기억하지 못하도록 설정
+        permanent: false, // status code => false: 307(임시 리다이렉트), true: 308(영구 리다이렉트)
       },
     ];
   },
@@ -21,6 +21,10 @@ const nextConfig = {
       {
         source: "/api/movies",
         destination: `http://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+      },
+      {
+        source: "/api/movies/:id",
+        destination: `http://api.themoviedb.org/3/movie/:id?api_key=${API_KEY}`,
       },
     ];
   },
