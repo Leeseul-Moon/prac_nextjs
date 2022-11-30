@@ -1,15 +1,10 @@
-import NabBar from "../components/NabBar";
+import Layout from "../components/Layout";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <NabBar />
+    <Layout>
       <Component {...pageProps} />
-      <style jsx global>{`
-        a {
-          color: yellow;
-        }
-      `}</style>
-    </>
+    </Layout>
   );
 }
